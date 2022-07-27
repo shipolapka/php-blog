@@ -14,6 +14,6 @@ class Admin extends Model
         $config = require 'config/admin.php';
 
         $this->error = $config['login'];
-        return true;
+        return false;
     }
 }
