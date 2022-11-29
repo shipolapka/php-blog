@@ -12,8 +12,13 @@ class Admin extends Model
     {
 
         $config = require 'config/admin.php';
+        if($config['login'] != $post['login'] or $config['password'] != $post['password'] )
+        {
+            $this->error = 'Логин или пароль указан неверно';
+            return false;
+        }
 
-        $this->error = $config['login'];
         return true;
+
     }
 }

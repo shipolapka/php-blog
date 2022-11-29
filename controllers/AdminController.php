@@ -6,22 +6,21 @@ use core\Controller;
 
 class AdminController extends Controller
 {
-    public function __construct($route)
-    {
+    public function __construct($route) {
         parent::__construct($route);
         $this->view->layout = 'admin';
-        $_SESSION['admin'] = 1;
-
     }
 
-    public function loginAction()
-    {
-        if(!empty($_POST)) {
-            if(!$this->model->loginValidate($_POST))
-            {
+    public function loginAction() {
+        if (isset($_SESSION['admin'])) {
+            $this->view->redirect('admin/add');
+        }
+        if (!empty($_POST)) {
+            if (!$this->model->loginValidate($_POST)) {
                 $this->view->message('error', $this->model->error);
             }
-            $this->view->message('success', 'OK');
+            $_SESSION['admin'] = true;
+            $this->view->location('admin/add');
         }
         $this->view->render('Вход');
     }
@@ -44,9 +43,14 @@ class AdminController extends Controller
         exit('Удалить пост');
     }
 
-    public function logoutAction()
+    public function logoutAction() {
+        unset($_SESSION['admin']);
+        $this->view->redirect('admin/login');
+    }
+
+    public function postsAction()
     {
-        exit('Выйти');
+        $this->view->render('Список постов');
     }
 
 }

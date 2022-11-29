@@ -37,18 +37,23 @@ return array(
     ),
 
     'admin/add' => array(
-        'controller' => 'main',
+        'controller' => 'admin',
         'action' => 'add'
     ),
 
     'admin/edit' => array(
-        'controller' => 'main',
+        'controller' => 'admin',
         'action' => 'edit'
     ),
 
     'admin/delete' => array(
-        'controller' => 'main',
+        'controller' => 'admin',
         'action' => 'delete'
+    ),
+
+    'admin/posts' => array(
+        'controller' => 'admin',
+        'action' => 'posts'
     ),
 
 );

@@ -3,6 +3,7 @@
 return [
     'all' => [
         'login',
+
     ],
     'authorize' => [
 
@@ -15,5 +16,6 @@ return [
         'add',
         'edit',
         'delete',
+        'posts',
     ]
 ];
