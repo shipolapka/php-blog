@@ -18,7 +18,12 @@ class Admin extends Model
             return false;
         }
 
+<<<<<<< HEAD
         return true;
 
+=======
+        $this->error = $config['login'];
+        return false;
+>>>>>>> c1a06657466d8d829f3dc3be10d2a50361fcb63b
     }
 }
